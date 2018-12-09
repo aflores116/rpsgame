@@ -5,7 +5,6 @@
    (function ($, talonUtil, undefined) {
     "use strict";
 
-
     // Fast for most debouncers, etc. but for transitions try and match typicall css transition length
     talonUtil.speeds = {
         fast: 200,
@@ -493,3 +492,4 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     talonUtil.setupScrollPointerBlocker();
     talonUtil.setupUserBinds();
 })(jQuery, window.talonUtil);
+
