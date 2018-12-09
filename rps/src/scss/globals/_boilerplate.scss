@@ -1,0 +1,84 @@
+/* ================================================================
+   Boilerplate - Base Styles
+   ================================================================ */
+
+html, button, input, select, textarea { color:$color-base; }
+body { font-family:$font-primary; line-height:1.4; overflow-y:scroll; background:$body-bg }
+
+::-moz-selection { background:$color-primary; color:$color-invert; text-shadow:none; }
+::selection { background:$color-primary; color:$color-invert; text-shadow:none; }
+
+*, *:before, *:after { box-sizing:border-box; }
+
+hr { display:block; margin:1em 0; padding:0; height:1px; border:0; border-top:1px solid #ccc;  }
+img { vertical-align:middle; width:auto; height:auto; max-width:100%; }
+.image-fluid, .image-fluid img { max-width:none; width:100%; height:auto; }
+.image-fixed, .image-fixed img { max-width:none; }
+
+fieldset { border:0; margin:0; padding:0; }
+textarea { resize:vertical; }
+
+.hidden { display:none !important; visibility: hidden; }
+.visuallyhidden, .visually-hidden, .visuallyHidden { position:absolute; overflow:hidden; clip:rect(0 0 0 0); margin:-1px; padding:0; border:0; width:1px; height:1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { position:static; overflow:visible; clip:auto; margin:0; width:auto; height:auto; }
+.invisible { visibility:hidden; }
+
+.clearfix {
+	&:before, &:after { content:" "; display:table; }
+	&:after { clear:both; }
+}
+
+.align-center { text-align:center; }
+.align-right { text-align:right; }
+.align-left { text-align:left; }
+
+.breakforprint { page-break-after:always; }
+
+.float-right { float:right }
+.float-left { float:left }
+
+figure { margin:1em 0; }
+
+
+
+
+
+
+/* ================================================================
+   Talon Util Boilerplate Additions
+   ================================================================ */
+
+
+.js-click-user *:focus, .js-click-user *:active { outline:0; }
+
+.scroll-cover {
+    position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+    pointer-events: auto !important;
+    z-index: 10000;
+}
+
+.svg-legend {
+    position: absolute; top: -9999em; left: -9999em;
+    width: 0; height: 0;
+    overflow:hidden;
+}
+
+svg.icon {
+	display:inline-block; vertical-align: middle;
+	width:24px; height:24px;
+	transition:all 0.3s ease-in-out;
+}
+
+.skip-link {
+	@extend .visually-hidden;
+	text-align:center;
+
+	&:focus {
+		position:static;
+		display:block;
+		color:$color-invert;
+		background:$color-primary;
+		padding:20px 0;
+		height:auto; width:100%;
+	}
+}

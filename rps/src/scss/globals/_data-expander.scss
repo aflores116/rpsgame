@@ -1,0 +1,53 @@
+.target-show {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-name: toggleTargetShow;
+}
+
+.target-hide {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-name: toggleTargetHide;
+}
+
+[data-expander-target] {
+    display: none;
+}
+
+[data-expander-target].active {
+    display: block;
+}
+
+[data-expander-target].target-show {
+    animation-name: toggleTargetShow;
+}
+
+[data-expander-target].target-hide {
+    animation-name: toggleTargetHide;
+}
+
+@keyframes toggleTargetShow {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes toggleTargetHide {
+    from {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+}

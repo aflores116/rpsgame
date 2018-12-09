@@ -1,0 +1,31 @@
+/* ================================================================
+   Tab Styles
+   ================================================================ */
+
+.talon-tabs {
+    margin-bottom:20px;
+
+    .talon-tab-nav {
+        ul {
+            list-style:none;
+            display:flex;
+            margin:0; padding:0;
+
+            li {
+                a {
+                    display:block;
+                    padding:10px;
+                    border-bottom:4px solid transparent;
+                    transition:all .3s;
+
+                    &.active {
+                        background:#eee;
+                        border-bottom:4px solid $color-primary;
+                    }
+                }
+            }
+        }
+    }
+    .talon-tab-content { padding:20px; background:#eee; }
+    .talon-tab-pane { }
+}

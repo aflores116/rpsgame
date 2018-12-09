@@ -1,0 +1,36 @@
+/* ================================================================
+   Button Styles
+   ================================================================ */
+
+.button {
+	display:inline-block;
+	padding:0.47em 1.2em;
+	border:0;
+	font-family:$font-primary; font-weight:$fontWeight-bold; color:$color-invert;
+	text-decoration:none; text-transform:uppercase; text-align:center;
+	background:$color-primary;
+	transition:all 0.2s ease-out;
+
+	&:hover, &:focus {
+		text-decoration:none;
+		background:#646464;
+	}
+}
+
+.back {
+	@extend .button-small !optional;
+	text-transform: capitalize;
+
+	&:before {
+		@extend .iconfont-chevron-left !optional;
+	}
+}
+
+.more {
+	@extend .button-small !optional;
+	text-transform:capitalize;
+
+	&:after {
+		@extend .iconfont-chevron-right !optional;
+	}
+}

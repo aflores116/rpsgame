@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Mobile-friendly viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Two Column Template </title>
+
+		<!-- Style sheet link -->
+        <link href="../css/main.min.css" rel="stylesheet" media="all">
+
+        <!--
+        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500' rel='stylesheet' type='text/css'>
+        -->
+	</head>
+
+	<body>
+        <!-- svg-legend.nunjucks -->
+<div class="svg-legend" aria-hidden="true">
+    <svg focusable="false" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol id="icon-search" viewBox="0 0 60 60">
+            <title>Search Magnifying Glas Icon</title>
+            <path d="M68.76,61.15,51.5,45.87a5.92,5.92,0,0,0-4-1.75,21,21,0,1,0-2.35,2.35,5.92,5.92,0,0,0,1.75,4L62.16,67.76a4.7,4.7,0,1,0,6.61-6.61ZM31.5,46.5a16,16,0,1,1,16-16A16,16,0,0,1,31.5,46.5Z"
+            transform="translate(-10.5 -9.5)" />
+        </symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0  33.37 27.72">
+            <title>Arrow pointing right</title>
+            <polygon points="33.37 13.86 19.51 0 13.61 0 25.34 11.63 0 11.63 0 16.06 25.34 16.06 13.61 27.72 19.51 27.72 33.37 13.86"/>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0  33.37 27.72">
+            <title>Arrow pointing left</title>
+            <polygon points="0 13.86 13.86 27.72 19.76 27.72 8.03 16.09 33.37 16.09 33.37 11.66 8.03 11.66 19.76 0 13.86 0 0 13.86"/>
+        </symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 20 20">
+           <title>chevron-right</title>
+           <path d="M9.163 4.516c0.418 0.408 4.502 4.695 4.502 4.695 0.223 0.219 0.335 0.504 0.335 0.789s-0.112 0.57-0.335 0.787c0 0-4.084 4.289-4.502 4.695-0.418 0.408-1.17 0.436-1.615 0-0.446-0.434-0.481-1.041 0-1.574l3.747-3.908-3.747-3.908c-0.481-0.533-0.446-1.141 0-1.576s1.197-0.409 1.615 0z"></path>
+        </symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 20 20">
+           <title>chevron-left</title>
+           <path d="M12.452 4.516c0.446 0.436 0.481 1.043 0 1.576l-3.747 3.908 3.747 3.908c0.481 0.533 0.446 1.141 0 1.574-0.445 0.436-1.197 0.408-1.615 0-0.418-0.406-4.502-4.695-4.502-4.695-0.223-0.217-0.335-0.502-0.335-0.787s0.112-0.57 0.335-0.789c0 0 4.084-4.287 4.502-4.695s1.17-0.436 1.615 0z"></path>
+        </symbol>
+        <symbol id="icon-chevron-down" viewBox="0 0 20 20">
+           <title>chevron-down</title>
+           <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
+        </symbol>
+        <symbol id="icon-chevron-up" viewBox="0 0 20 20">
+           <title>chevron-up</title>
+           <path d="M15.484 12.452c-0.436 0.446-1.043 0.481-1.576 0l-3.908-3.747-3.908 3.747c-0.533 0.481-1.141 0.446-1.574 0-0.436-0.445-0.408-1.197 0-1.615 0.406-0.418 4.695-4.502 4.695-4.502 0.217-0.223 0.502-0.335 0.787-0.335s0.57 0.112 0.789 0.335c0 0 4.287 4.084 4.695 4.502s0.436 1.17 0 1.615z"></path>
+        </symbol>
+        <symbol id="icon-facebook" viewBox="0 0 1792 1792">
+            <title>Facebook Logo</title>
+            <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/>
+        </symbol>
+        <symbol id="icon-twitter" viewBox="0 0 1792 1792">
+            <title>Twitter Logo</title>
+            <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/>
+        </symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 1792 1792">
+            <title>Linkedin Logo</title>
+            <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/>
+        </symbol>
+        <symbol id="icon-rss" viewBox="0 0 1792 1792">
+            <title>RSS Logo</title>
+            <path d="M576 1344q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm512 123q2 28-17 48-18 21-47 21h-135q-25 0-43-16.5t-20-41.5q-22-229-184.5-391.5t-391.5-184.5q-25-2-41.5-20t-16.5-43v-135q0-29 21-47 17-17 43-17h5q160 13 306 80.5t259 181.5q114 113 181.5 259t80.5 306zm512 2q2 27-18 47-18 20-46 20h-143q-26 0-44.5-17.5t-19.5-42.5q-12-215-101-408.5t-231.5-336-336-231.5-408.5-102q-25-1-42.5-19.5t-17.5-43.5v-143q0-28 20-46 18-18 44-18h3q262 13 501.5 120t425.5 294q187 186 294 425.5t120 501.5z"/>
+        </symbol>
+        <symbol id="icon-phone" viewBox="0 0 16 20">
+            <title>Phone Icon</title>
+            <path d="M8.967,14.45c0.366,0.336,0.732,0.397,1.098,0.183l3.066,5.216c-0.428,0.275-1.594,0.16-3.5-0.343
+            c-1.907-0.503-4.02-2.753-6.337-6.749c-2.166-3.782-3.013-6.573-2.54-8.374c0.473-1.8,0.922-2.852,1.35-3.157l3.157,5.354
+            c-0.366,0.214-0.503,0.557-0.412,1.03C4.941,8.082,5.108,8.563,5.353,9.05c0,0.031,0.732,1.281,2.196,3.752
+            C8.128,13.565,8.601,14.114,8.967,14.45z M7.183,5.481l-1.51,0.869L2.516,0.997L3.98,0.128c0.153-0.122,0.32-0.16,0.503-0.114
+            s0.32,0.16,0.412,0.343L7.412,4.52C7.503,4.703,7.526,4.879,7.48,5.047C7.434,5.214,7.335,5.36,7.183,5.481z M15.282,17.836
+            c0.092,0.153,0.114,0.32,0.069,0.503c-0.046,0.183-0.145,0.32-0.297,0.412l-1.51,0.869l-3.112-5.216l1.51-0.869
+            c0.153-0.122,0.32-0.16,0.503-0.114c0.183,0.046,0.32,0.16,0.412,0.343L15.282,17.836z"/>
+        </symbol>
+    </svg>
+</div>
+		<header id="site-header" class="header" role="banner">
+            <a class="skip-link" href="#maincontent">Skip to Main Content</a>
+			<div class="header-inner">
+                <div class="container">
+                    <div class="header-top row">
+                        <div class="col-lg-4">
+                            <a href="home.html" class="brand"><img src="../images/logo.jpg" alt="AE" /></a>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="site-search"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- navigation.nunjucks -->
+<nav class="main-nav nav-bar" role="navigation">
+    <a href="#" class="toggle-menu">
+        <span><span class="visuallyhidden">Toggle Menu</span></span>
+    </a>
+    <ul class="cm-menu">
+        <li>
+            <a href="#"><span>Link 1</span></a>
+            <ul>
+                <li><a href="#"><span>Sub Link 1</span></a>
+                <li><a href="#"><span>Sub Link 2</span></a>
+                <li><a href="#"><span>Sub Link 3</span></a>
+                <li><a href="#"><span>Sub Link 4</span></a>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><span>Link 2</span></a>
+        </li>
+        <li>
+            <a href="#"><span>Link 3</span></a>
+            <ul>
+                <li><a href="#"><span>Sub Link 1</span></a>
+                <li><a href="#"><span>Sub Link 2</span></a>
+                <li><a href="#"><span>Sub Link 3</span></a>
+                <li><a href="#"><span>Sub Link 4</span></a>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><span>Link 4</span></a>
+            <ul>
+                <li><a href="#"><span>Sub Link 1</span></a>
+                <li><a href="#"><span>Sub Link 2</span></a>
+                <li><a href="#"><span>Sub Link 3</span></a>
+                <li><a href="#"><span>Sub Link 4</span></a>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><span>Link 5</span></a>
+        </li>
+    </ul>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</header>
+
+		<main id="site-main" role="main">
+	  		
+<div id="maincontent" class="container">
+    <div class="row">
+
+    </div>
+</div>
+
+		</main>
+
+		<footer id="site-footer" role="contentinfo">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            Copyright &copy; 2018 Americaneagle.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="../js/all.min.js"></script>
+	</body>
+</html>

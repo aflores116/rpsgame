@@ -1,0 +1,229 @@
+/* ==========================================================================
+  COLOR BOX - Overlay Plugin
+========================================================================== */
+
+/* 
+  General Styles
+*/
+
+
+/* 
+  Overlay
+*/
+#cboxOverlay{
+  top:0; 
+  left:0; 
+  z-index:9999; 
+  overflow:initial; 
+  -webkit-transform: translate3d(0,0,0);
+  position:fixed; 
+  width:100%; 
+  height:100%;
+  background:rgba($color-base, 0.75); 
+}
+
+/* 
+  Box Container
+*/
+#colorbox {
+  position:absolute; 
+  top:0; 
+  left:0; 
+  z-index:9999; 
+  overflow:initial; 
+  -webkit-transform: translate3d(0,0,0);
+  box-sizing:content-box; 
+  -moz-box-sizing:content-box; 
+  -webkit-box-sizing:content-box;
+  outline:0;
+
+  #cboxWrapper{
+    position:absolute; 
+    top:0; 
+    left:0; 
+    z-index:9999; 
+    overflow:initial; 
+    -webkit-transform: translate3d(0,0,0);
+    max-width:none;
+  }
+
+  #cboxMiddleLeft, #cboxBottomLeft{
+    clear:left;
+  }
+
+  #cboxContent{
+    position:relative;
+    box-sizing:content-box; 
+    -moz-box-sizing:content-box; 
+    -webkit-box-sizing:content-box;
+
+    max-width:960px;
+    background:$color-invert;
+
+    #cboxLoadedContent{
+      overflow:auto; 
+      -webkit-overflow-scrolling: touch;
+      box-sizing:content-box; 
+      -moz-box-sizing:content-box; 
+      -webkit-box-sizing:content-box;
+
+      padding:15px 15px 40px;
+
+      .cboxPhoto{
+        float:left; 
+        margin:auto; 
+        border:0; 
+        display:block; 
+        max-width:none; 
+        -ms-interpolation-mode:bicubic;
+      }
+    }
+    
+    #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+      border:0; 
+      padding:0; 
+      margin:0; 
+      overflow:visible; 
+      width:auto; 
+      background:none;
+      cursor:pointer;
+
+      &:active {
+        outline:0;
+      }
+    }
+
+    #cboxPrevious{
+      top: 50%;
+      margin-top: -32px;
+      background-image: url(/ResourcePackages/Talon/assets/dist/images/arrow.png);
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      background-color:rgba($color-invert, 0.75);
+      @include x-rem(font-size, 0px);
+      border-radius: 50%;
+      background-size: 7px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      left: -60px; 
+      transform: rotate(180deg);
+      transition: all .5s ease-in; 
+      
+      &:hover{
+     
+      }
+    }
+
+    #cboxNext{
+      right:-60px; 
+      top: 50%;
+      margin-top: -32px;
+      background-image: url(/ResourcePackages/Talon/assets/dist/images/arrow.png);
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      background-color:rgba($color-invert, 0.75);
+      @include x-rem(font-size, 0px);
+      border-radius: 50%;
+      background-size: 7px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      transition: all .2s ease-in; 
+    
+      &:hover{
+     
+      }
+    }
+
+    #cboxSlideshow{
+      position:absolute; 
+      top:-20px; 
+      right:90px; 
+      color:#fff;
+    }
+
+    #cboxClose{
+      position: absolute;
+      top:-25px;
+      right: -25px;
+      display: block;
+      background-image: url(/ResourcePackages/Talon/assets/dist/images/cancel.png);
+      width: 25px;
+      height: 25px;
+      background-size: 10px;
+      text-indent: -9999px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color:rgba($color-base, 0.75);
+      border-radius: 50%;  
+    }
+
+    #cboxLoadingOverlay{
+      position:absolute; 
+      top:0; 
+      left:0; 
+      width:100%; 
+      height:100%;
+    }
+
+    #cboxLoadingGraphic {
+      position:absolute; 
+      top:0; 
+      left:0; 
+      width:100%; 
+      height:100%;
+      background:url(/ResourcePackages/Talon/assets/dist/images/loading.gif) no-repeat center center;
+    }
+  }
+}
+
+.cboxIframe{
+  width:100%; 
+  height:100%; 
+  display:block; 
+  border:0; 
+  padding:0; 
+  margin:0;
+  background:$color-invert;
+
+}
+#cboxError{
+  padding:50px;
+  border:1px solid #ccc;
+}
+
+/* 
+    User Style
+*/
+
+
+#cboxContent{
+
+  #cboxCurrent{
+    position:absolute; 
+    bottom:0; 
+    right:0px; 
+    color:$color-base;
+    @include x-rem(font-size, 13px);
+    text-transform: capitalize;
+    padding:10px 15px;
+  } 
+
+  #cboxTitle{
+    position:absolute; 
+    bottom:0; 
+    left:0; 
+    color:$color-base;
+    @include x-rem(font-size, 13px);
+    padding: 10px 15px;
+    margin:0;
+  }
+}
+
+
+
+
+
+
+

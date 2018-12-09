@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Mobile-friendly viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block pagetitle %} {% endblock %}</title>
+
+		<!-- Style sheet link -->
+        <link href="../css/main.min.css" rel="stylesheet" media="all">
+
+        <!--
+        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500' rel='stylesheet' type='text/css'>
+        -->
+	</head>
+
+	<body>
+        {% include "partials/svg-legend.html" %}
+		<header id="site-header" class="header" role="banner">
+            <a class="skip-link" href="#maincontent">Skip to Main Content</a>
+			<div class="header-inner">
+                <div class="container">
+                    <div class="header-top row">
+                        <div class="col-lg-4">
+                            <a href="home.html" class="brand"><img src="../images/logo.jpg" alt="AE" /></a>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="site-search"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% include "partials/navigation.html" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</header>
+
+		<main id="site-main" role="main">
+	  		{% block content %} {% endblock %}
+		</main>
+
+		<footer id="site-footer" role="contentinfo">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            Copyright &copy; 2018 Americaneagle.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="../js/all.min.js"></script>
+	</body>
+</html>

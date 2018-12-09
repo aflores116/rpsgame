@@ -1,0 +1,42 @@
+/* ================================================================
+   Typography Styles
+   ================================================================ */
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+	margin:0 0 $typography-margin-bottom;
+	font-family:$font-heading;
+}
+
+h1, .h1 { @include x-rem(font-size, 37px); }
+h2, .h2 { @include x-rem(font-size, 27px); }
+h3, .h3 { @include x-rem(font-size, 18px); }
+h4, .h4 { font-family: $font-primary }
+
+a {
+	color:$color-primary;
+	text-decoration:none;
+
+	&:hover, &:focus { text-decoration:underline; }
+}
+// a[target="_blank"] { cursor:alias }
+
+p { margin:0 0 $typography-margin-bottom; }
+
+// Very simple blockquote styling
+blockquote {
+	margin:1em 1.5em; padding-left:1.5em;
+	border-left:5px solid hsl(0, 0%, 85%);
+}
+
+.smallest { font-size:0.8em; }
+.smaller { font-size:0.9em; }
+.larger { font-size:1.1em; }
+.largest { font-size:1.2em; }
+
+.bold { font-weight:bold; }
+.italic { font-style:italic; }
+.strike { text-decoration:line-through; }
+
+.nowrap { white-space:nowrap; }
+.important { color:red; font-weight:bold; text-transform:uppercase; }

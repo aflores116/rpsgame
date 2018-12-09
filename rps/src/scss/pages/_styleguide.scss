@@ -1,0 +1,61 @@
+html {
+  body {
+    transition: all 0.3s ease-in-out;
+  }
+  &.js-data-toggled {
+    color: $color-invert;
+    fill: $color-invert;
+    body {
+      background: $color-base;
+    }
+  }
+}
+
+.expandable-examples {
+  *:focus {
+      outline: 1px solid blue;
+  }
+
+  div {
+      margin: 1em 0;
+  }
+}
+
+.color-block {
+  display:inline-block;
+  margin:5px;
+  text-align:center;
+  width:120px; height:120px;
+  border-radius:240px;
+
+  &.color-primary { background:$color-primary; }
+  &.color-secondary { background:$color-secondary; }
+}
+
+#svg-list {
+  font-size: 0;
+
+  .item {
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+    padding: 10px;
+    text-align: center;
+
+    .title {
+      font-weight: bold;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .ident {
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    svg {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
