@@ -1,0 +1,59 @@
+.header{
+    background:grey;
+    padding:20px;
+}
+
+.rps-content{
+    background:#24272E;
+    color:white;
+}
+.scoreboard{
+    position:relative;
+    padding:15 20px;
+  @include x-rem(font-size,40px);
+  border:3px solid white;
+  border-radius:4px;
+  text-align:center;
+  
+  .badge{
+    
+    padding:2px 10px;
+    background:#E25840;
+    @include x-rem(font-size,16px);
+}
+
+    .user-label{
+        position:absolute;
+        top:0;
+        left:0;
+    }
+
+    .comp-label{
+        position:absolute;
+        right:0;
+        top:0;
+    }
+   
+}
+.result{
+    text-align:center;
+    margin:30px;
+ }
+.choice-list{
+    display:flex;
+    justify-content:center;
+    margin:0;
+    padding:0;
+    list-style:none;
+
+    li{margin-right:30px;}
+    li a{
+        padding:20px;
+        border-radius:50%;
+    }
+
+}
+.user-choices{
+    text-align:center;
+    padding:15px;
+}

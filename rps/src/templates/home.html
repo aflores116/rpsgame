@@ -3,7 +3,34 @@
 {% block pagetitle %} Homepage {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Rock, Paper, Scissors</h1>
-</div>
+<header class="rps-header">
+    <div class="container">
+        <h1>Rock, Paper, Scissors</h1>
+    </div>
+</header>
+    <div id="maincontent" class="rps-content">
+        <div class="scoreboard">
+            <div class="badge user-label">
+                user
+            </div>
+            <div class="badge comp-label">
+                Comp
+            </div>
+            <span class="user-score">0</span>:<span class="computer-score">0</span>
+        </div>
+        <div class="result">
+        <p>Paper covers rock, you win</p>
+        </div>
+
+    <div class="user-choices">
+            <p class="action-message">Make Your Move</p>
+
+       <ul class="choice-list">
+           <li class="choice-item" class="r"><a class="button" href="#">Rock</a></li>
+           <li class="choice-item" class="p"><a class="button" href="#">Paper</a></li>
+           <li class="choice-item" class="s"><a class="button" href="#">Scissors</a></li>
+       </ul>
+    </div>
+    </div>
+
 {% endblock %}
