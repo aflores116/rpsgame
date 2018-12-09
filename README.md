@@ -1,2 +1,0 @@
-# rpsgame
-Rock Papers Scissors

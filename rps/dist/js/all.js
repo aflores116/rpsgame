@@ -1,7 +1,3 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 /* ******************************************************
    PLUGINS
         - Currently used site-wide.
@@ -30,12 +26,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         define(['jquery'], function ($) {
             return factory(window, $);
         });
-    } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof exports.nodeName !== 'string') {
+    } else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
         module.exports = factory(window, require('jquery'));
     } else {
         factory(window, jQuery);
     }
-})(typeof window !== "undefined" ? window : undefined, function (window, $) {
+})(typeof window !== "undefined" ? window : this, function (window, $) {
     'use strict';
 
     var ClickMenu = window.ClickMenu || {};
@@ -44,12 +40,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // Code from Underscore.js
 
-    var debounce = function debounce(func, wait, immediate) {
+    var debounce = function (func, wait, immediate) {
         var timeout;
         return function () {
             var context = this,
                 args = arguments;
-            var later = function later() {
+            var later = function () {
                 timeout = null;
                 if (!immediate) func.apply(context, args);
             };
@@ -210,7 +206,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
                     $expandable.wrap($subMenu);
 
-                    var adjustMenu = function adjustMenu() {
+                    var adjustMenu = function () {
                         var maxWidth = _.$menu.innerWidth(),
                             leftPosition = $parentLi.position().left,
                             $adjustable;
@@ -641,7 +637,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             ret;
 
         for (i = 0; i < l; i++) {
-            if ((typeof opt === 'undefined' ? 'undefined' : _typeof(opt)) == 'object' || typeof opt == 'undefined') {
+            if (typeof opt == 'object' || typeof opt == 'undefined') {
                 _[i].clickMenu = new ClickMenu(_[i], opt);
             } else {
                 ret = _[i].clickMenu[opt].apply(_[i].clickMenu, args);
@@ -709,7 +705,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 centerMode: false,
                 centerPadding: '50px',
                 cssEase: 'ease',
-                customPaging: function customPaging(slider, i) {
+                customPaging: function (slider, i) {
                     return $('<button type="button" />').text(i + 1);
                 },
                 dots: false,
@@ -940,7 +936,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }, {
                     duration: _.options.speed,
                     easing: _.options.easing,
-                    step: function step(now) {
+                    step: function (now) {
                         now = Math.ceil(now);
                         if (_.options.vertical === false) {
                             animProps[_.animType] = 'translate(' + now + 'px, 0px)';
@@ -950,7 +946,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                             _.$slideTrack.css(animProps);
                         }
                     },
-                    complete: function complete() {
+                    complete: function () {
                         if (callback) {
                             callback.call();
                         }
@@ -997,7 +993,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var _ = this,
             asNavFor = _.getNavTarget();
 
-        if (asNavFor !== null && (typeof asNavFor === 'undefined' ? 'undefined' : _typeof(asNavFor)) === 'object') {
+        if (asNavFor !== null && typeof asNavFor === 'object') {
             asNavFor.each(function () {
                 var target = $(this).slick('getSlick');
                 if (!target.unslicked) {
@@ -3401,7 +3397,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             i,
             ret;
         for (i = 0; i < l; i++) {
-            if ((typeof opt === 'undefined' ? 'undefined' : _typeof(opt)) == 'object' || typeof opt == 'undefined') _[i].slick = new Slick(_[i], opt);else ret = _[i].slick[opt].apply(_[i].slick, args);
+            if (typeof opt == 'object' || typeof opt == 'undefined') _[i].slick = new Slick(_[i], opt);else ret = _[i].slick[opt].apply(_[i].slick, args);
             if (typeof ret != 'undefined') return ret;
         }
         return _;
@@ -3486,21 +3482,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         onCleanup: false,
         onClosed: false,
 
-        rel: function rel() {
+        rel: function () {
             return this.rel;
         },
-        href: function href() {
+        href: function () {
             // using this.href would give the absolute url, when the href may have been inteded as a selector (e.g. '#container')
             return $(this).attr('href');
         },
-        title: function title() {
+        title: function () {
             return this.title;
         },
-        createImg: function createImg() {
+        createImg: function () {
             var img = new Image();
             var attrs = $(this).data('cbox-img-attrs');
 
-            if ((typeof attrs === 'undefined' ? 'undefined' : _typeof(attrs)) === 'object') {
+            if (typeof attrs === 'object') {
                 $.each(attrs, function (key, val) {
                     img[key] = val;
                 });
@@ -3508,11 +3504,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             return img;
         },
-        createIframe: function createIframe() {
+        createIframe: function () {
             var iframe = document.createElement('iframe');
             var attrs = $(this).data('cbox-iframe-attrs');
 
-            if ((typeof attrs === 'undefined' ? 'undefined' : _typeof(attrs)) === 'object') {
+            if (typeof attrs === 'object') {
                 $.each(attrs, function (key, val) {
                     iframe[key] = val;
                 });
@@ -4089,7 +4085,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         $box.dequeue().animate(css, {
             duration: speed || 0,
-            complete: function complete() {
+            complete: function () {
                 modalDimensions();
 
                 active = false;
@@ -4188,7 +4184,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         setClass(settings.get('className'));
 
-        callback = function callback() {
+        callback = function () {
             var total = $related.length,
                 iframe,
                 complete;
@@ -4204,7 +4200,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             }
 
-            complete = function complete() {
+            complete = function () {
                 clearTimeout(loadingTimer);
                 $loadingOverlay.hide();
                 trigger(event_complete);
@@ -4365,7 +4361,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     }
 
                     if (settings.get('scalePhotos')) {
-                        setResize = function setResize() {
+                        setResize = function () {
                             photo.height -= photo.height * percent;
                             photo.width -= photo.width * percent;
                         };
@@ -4663,22 +4659,22 @@ $(".faux-select").each(function () {
 !function (e) {
     "function" == typeof define && define.amd ? define(["jquery"], function (t) {
         return e(t, window);
-    }) : "object" == (typeof module === 'undefined' ? 'undefined' : _typeof(module)) && module.exports ? module.exports = function (t, o) {
+    }) : "object" == typeof module && module.exports ? module.exports = function (t, o) {
         return void 0 === o && (o = "undefined" != typeof window ? require("jquery") : require("jquery")(t)), e(o, window), o;
     } : e(jQuery, window);
 }(function (e, t) {
     function o(t, o) {
         var n = this;n.active = !1, n.$el = e(t), n.$focusBox = e("<div aria-hidden='true' />"), n.$previousTarget, n.$nextTarget, n.timeout = 0, n.inScope = !1, n.transitionEvent = n._whichTransitionEvent(), n.options = e.extend({}, e.fn.focusOverlay.defaults, o), n.onFocusHandler = e.proxy(n.onFocusHandler, n), n.createFocusBox = e.proxy(n.createFocusBox, n), n.onKeyDownHandler = e.proxy(n.onKeyDownHandler, n), n._repositionBox = e.proxy(n._repositionBox, n), n.moveFocusBox = e.proxy(n.moveFocusBox, n), n.cleanup = e.proxy(n.cleanup, n), n.stop = e.proxy(n.stop, n), n.destroy = e.proxy(n.destroy, n), n.init();
-    }o.prototype = { init: function init() {
+    }o.prototype = { init: function () {
             var e = this;e.options.alwaysActive ? (e.active = !0, t.addEventListener("focus", e.onFocusHandler, !0)) : (t.addEventListener("keydown", e.onKeyDownHandler, !1), e.options.inactiveOnClick && t.addEventListener("mousedown", e.stop, !1)), e.createFocusBox(), e.$el.trigger("foInit", [e]);
-        }, onKeyDownHandler: function onKeyDownHandler(o) {
+        }, onKeyDownHandler: function (o) {
             var n = this,
                 i = o.which;e.inArray(i, n.options.triggerKeys) >= 0 ? !1 === n.active && (n.active = !0, t.addEventListener("focus", n.onFocusHandler, !0)) : n.options.inactiveOnNonTriggerKey && n.stop();
-        }, createFocusBox: function createFocusBox() {
+        }, createFocusBox: function () {
             var e = this;e.$focusBox.appendTo(e.$el).attr("id", e.options.id).css({ position: "absolute", zIndex: e.options.zIndex, pointerEvents: "none" });
-        }, cleanup: function cleanup() {
+        }, cleanup: function () {
             var e = this;null != e.$nextTarget && (e.$previousTarget = e.$nextTarget, e.$previousTarget.removeClass(e.options.targetClass), e.transitionEvent && e.options.watchTransitionEnd && e.$previousTarget[0].removeEventListener(e.transitionEvent, e._repositionBox));
-        }, onFocusHandler: function onFocusHandler(t) {
+        }, onFocusHandler: function (t) {
             var o = this,
                 n = e(t.target);if (o.cleanup(), n.closest(o.$el).length > 0) {
                 var i = o.$nextTarget,
@@ -4688,9 +4684,9 @@ $(".faux-select").each(function () {
                     if (n.is("[data-focus-ignore]")) return;o.$nextTarget = n;
                 }clearTimeout(o.timeout), o.transitionEvent && o.options.watchTransitionEnd && o.$nextTarget[0].addEventListener(o.transitionEvent, o._repositionBox), o.$el.trigger("foBeforeMove", [o, r, i, o.$nextTarget]), o.moveFocusBox(o.$nextTarget);
             } else o.options.alwaysActive ? o.inScope = !1 : (o.inScope = !1, o.stop());
-        }, stop: function stop() {
+        }, stop: function () {
             var e = this;e.active = !1, t.removeEventListener("focus", e.onFocusHandler, !0), e.cleanup(), e.$focusBox.removeClass(e.options.activeClass);
-        }, moveFocusBox: function moveFocusBox(e) {
+        }, moveFocusBox: function (e) {
             var t = this;if (e.addClass(t.options.targetClass), e.length > 0 && e[0] instanceof Element) {
                 var o = t._getAbsoluteBoundingRect(e[0]),
                     n = o.width,
@@ -4700,28 +4696,24 @@ $(".faux-select").each(function () {
                     t.$focusBox.removeClass(t.options.animatingClass), t.options.inactiveAfterDuration && t.$focusBox.removeClass(t.options.activeClass), t.$el.trigger("foAfterMove", [t, t.$previousTarget, e]);
                 }, t.options.duration);
             } else t.cleanup();
-        }, _repositionBox: function _repositionBox(t) {
+        }, _repositionBox: function (t) {
             var o = this,
                 n = e(t.target);o.moveFocusBox(n);
-        }, destroy: function destroy() {
+        }, destroy: function () {
             var e = this;e.$el.removeData(), e.$focusBox.remove(), null != e.$previousTarget && e.$previousTarget.removeClass(e.options.targetClass), null != e.$nextTarget && e.$nextTarget.removeClass(e.options.targetClass), t.removeEventListener("focus", e.onFocusHandler, !0), t.removeEventListener("keydown", e.onKeyDownHandler, !1), t.removeEventListener("mousedown", e.stop, !1), e.$el.trigger("foDestroyed", [e]);
-        }, _getAbsoluteBoundingRect: function _getAbsoluteBoundingRect(e) {
+        }, _getAbsoluteBoundingRect: function (e) {
             var o = document,
                 n = t,
                 i = o.body,
                 r = void 0 !== n.pageXOffset ? n.pageXOffset : (o.documentElement || i.parentNode || i).scrollLeft,
                 s = void 0 !== n.pageYOffset ? n.pageYOffset : (o.documentElement || i.parentNode || i).scrollTop,
-                a = e.getBoundingClientRect();if (e !== i) for (var c = e.parentNode; c !== i && c;) {
-                r += c.scrollLeft, s += c.scrollTop, c = c.parentNode;
-            }return { bottom: a.bottom + s, height: a.height, left: a.left + r, right: a.right + r, top: a.top + s, width: a.width };
-        }, _whichTransitionEvent: function _whichTransitionEvent() {
+                a = e.getBoundingClientRect();if (e !== i) for (var c = e.parentNode; c !== i && c;) r += c.scrollLeft, s += c.scrollTop, c = c.parentNode;return { bottom: a.bottom + s, height: a.height, left: a.left + r, right: a.right + r, top: a.top + s, width: a.width };
+        }, _whichTransitionEvent: function () {
             var e,
                 t = document.createElement("fakeelement"),
-                o = { transition: "transitionend", OTransition: "oTransitionEnd", MozTransition: "transitionend", WebkitTransition: "webkitTransitionEnd" };for (e in o) {
-                if (void 0 !== t.style[e]) return o[e];
-            }
+                o = { transition: "transitionend", OTransition: "oTransitionEnd", MozTransition: "transitionend", WebkitTransition: "webkitTransitionEnd" };for (e in o) if (void 0 !== t.style[e]) return o[e];
         } }, e.fn.focusOverlay = function (t) {
-        var n = arguments;if (void 0 === t || "object" == (typeof t === 'undefined' ? 'undefined' : _typeof(t))) return this.each(function () {
+        var n = arguments;if (void 0 === t || "object" == typeof t) return this.each(function () {
             e.data(this, "plugin_" + o) || e.data(this, "plugin_" + o, new o(this, t));
         });if ("string" == typeof t && "_" !== t[0] && "init" !== t) {
             if (0 == Array.prototype.slice.call(n, 1).length && -1 != e.inArray(t, e.fn.focusOverlay.getters)) {
@@ -4760,7 +4752,7 @@ $(".faux-select").each(function () {
      * Setup expanding functionality for [data-expander] elements (e.g. accordions,
      * tabs, expanders, menus, etc.)
      */
-    talonUtil.setupToggles = function () {
+    talonUtil.setupToggles = () => {
         $("[data-expander]").each(function (key) {
             var $this = $(this),
                 relatedData,
@@ -4811,7 +4803,7 @@ $(".faux-select").each(function () {
 
             // By default `jsAnimation` will be used unless data-expander-css is added
             var jsAnimation = {
-                hide: function hide() {
+                hide: function () {
                     // Remove `active` state after slide animation
                     $target.slideUp(animateTime, function () {
                         $target.removeClass("active");
@@ -4820,7 +4812,7 @@ $(".faux-select").each(function () {
                         $toggle.add($relatedToggles).attr("aria-expanded", "false");
                     });
                 },
-                show: function show() {
+                show: function () {
                     // Add `active` state after slide animation
                     $target.slideDown(animateTime, function () {
                         $target.addClass("active");
@@ -4832,7 +4824,7 @@ $(".faux-select").each(function () {
                  * used with appropriate show/hide CSS animations if you go this route
                  */
             };var cssAnimation = {
-                hide: function hide() {
+                hide: function () {
                     /**
                      * Classes to use CSS animation for show/hiding.
                      * This will also allow us to set display to block/none
@@ -4849,7 +4841,7 @@ $(".faux-select").each(function () {
                         $toggle.add($relatedToggles).attr("aria-expanded", "false");
                     }, animateTime);
                 },
-                show: function show() {
+                show: function () {
                     // Should set to display block
                     $target.addClass("active");
 
@@ -4908,7 +4900,7 @@ $(".faux-select").each(function () {
                      * Then we focus an item inside (input, select, etc)
                      * otherwise focusable the whole target
                      */
-                    var later = function later() {
+                    var later = function () {
                         var $focusable = $target.find("input, select, textarea, a").first();
 
                         if (isNoFocus !== true) {
