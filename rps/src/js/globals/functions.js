@@ -491,5 +491,34 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     talonUtil.setupToggles();
     talonUtil.setupScrollPointerBlocker();
     talonUtil.setupUserBinds();
-})(jQuery, window.talonUtil);
 
+
+
+    
+
+     //RPS Game
+     const userScore = 0;
+     const computerScore = 0;
+     const userScore_span =  document.querySelector(".user-score");
+     const computerScore_span =  document.querySelector(".computer-score");
+     const scoreboard_div = document.querySelector(".scoreboard");
+     const result_div = document.querySelector(".result");
+     const rock_li = document.querySelector(".r");
+     const paper_li = document.querySelector(".p");
+     const scissors_li = document.querySelector(".s");
+ 
+ 
+ 
+ //functions
+     rock_li.addEventListener("click", function(){
+         console.log("Rock");
+     });
+ 
+     paper_li.addEventListener("click", function(){
+         console.log("Paper");
+     });
+ 
+     scissors_li.addEventListener("click", function(){
+         console.log("Scissors");
+     });
+})(jQuery, window.talonUtil);
