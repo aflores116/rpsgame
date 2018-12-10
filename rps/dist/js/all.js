@@ -5234,5 +5234,6 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
             game("s");
         });
     };
+
     main();
 })(jQuery, window.talonUtil);
