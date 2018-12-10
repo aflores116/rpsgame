@@ -494,7 +494,7 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
 
 
 
-    
+
 
      //RPS Game
      const userScore = 0;
@@ -510,15 +510,30 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
  
  
  //functions
-     rock_li.addEventListener("click", function(){
-         console.log("Rock");
-     });
+
+ function game (userChoice){
+    console.log(`Your Choice was ${userChoice} `)
+}
+
+function main(){
+    rock_li.addEventListener("click", function(){
+        game("r");
+    });
+
+    paper_li.addEventListener("click", function(){
+       game("p");
+    });
+
+    scissors_li.addEventListener("click", function(){
+       game("s");
+    });
+};
+main();
  
-     paper_li.addEventListener("click", function(){
-         console.log("Paper");
-     });
- 
-     scissors_li.addEventListener("click", function(){
-         console.log("Scissors");
-     });
+
+
+
+
+
+
 })(jQuery, window.talonUtil);
