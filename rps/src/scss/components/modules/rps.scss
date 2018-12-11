@@ -40,13 +40,14 @@
     margin:30px;
  }
 .choice-list{
+    flex-wrap:wrap;
     display:flex;
     justify-content:center;
     margin:0;
     padding:0;
     list-style:none;
 
-    li{margin-right:30px;}
+    li{margin-right:10px;}
     li a{
         padding:20px;
         border-radius:50%;

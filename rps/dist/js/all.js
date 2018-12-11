@@ -5216,12 +5216,16 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     const scissors_li = document.querySelector(".s");
 
     //functions
+    let GetComputerChoice = function () {
+        const choices = ['r', 'p', 's'];
+        console.log(Math.random());
+    };
 
-    function game(userChoice) {
+    let game = function (userChoice) {
         console.log(`Your Choice was ${userChoice} `);
-    }
+    };
 
-    function main() {
+    let main = function () {
         rock_li.addEventListener("click", function () {
             game("r");
         });
