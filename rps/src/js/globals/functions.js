@@ -510,15 +510,38 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
  
  
  //functions
- let GetComputerChoice = function(){
+ let getComputerChoice = function(){
     const choices = ['r', 'p', 's'];
-    console.log(Math.random());
+    const randomNumber =  Math.floor(Math.random()*3);
+    return choices[randomNumber];
+
  }
+console.log(getComputerChoice());
  
  let game = function  (userChoice){
-    console.log(`Your Choice was ${userChoice} `)
-}
+    console.log(`Your Choice was ${userChoice} `);
+    const computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    console.log(`user choice => ${userChoice}`);
+    console.log(`computer choice => ${computerChoice}`);
 
+   switch(userChoice + computerChoice){
+      case "rp":
+      case "pr":
+      case "sp":
+      console.log("user wins");
+      break;
+      case "rp":
+      case "ps":
+      case "sr":
+      console.log("user loses");
+      case "rr":
+      case "pp":
+      case "ss":
+      console.log("draw!");
+      break;
+}
+ }
 let main = function(){
     rock_li.addEventListener("click", function(){
         game("r");
