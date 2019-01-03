@@ -496,69 +496,85 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
 
 
 
-     //RPS Game
-     const userScore = 0;
-     const computerScore = 0;
-     const userScore_span =  document.querySelector(".user-score");
-     const computerScore_span =  document.querySelector(".computer-score");
-     const scoreboard_div = document.querySelector(".scoreboard");
-     const result_div = document.querySelector(".result");
-     const rock_li = document.querySelector(".r");
-     const paper_li = document.querySelector(".p");
-     const scissors_li = document.querySelector(".s");
- 
- 
- 
- //functions
- let getComputerChoice = function(){
-    const choices = ['r', 'p', 's'];
-    const randomNumber =  Math.floor(Math.random()*3);
-    return choices[randomNumber];
+    //RPS Game
+    let userScore = 0;
+    let computerScore = 0;
+    const userScore_span = document.querySelector(".user-score");
+    const computerScore_span = document.querySelector(".computer-score");
+    const scoreboard_div = document.querySelector(".scoreboard");
+    const result_div = document.querySelector(".result");
+    const rock_li = document.querySelector(".r");
+    const paper_li = document.querySelector(".p");
+    const scissors_li = document.querySelector(".s");
 
- }
-console.log(getComputerChoice());
- 
- let game = function  (userChoice){
-    console.log(`Your Choice was ${userChoice} `);
-    const computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    console.log(`user choice => ${userChoice}`);
-    console.log(`computer choice => ${computerChoice}`);
+    //functions
+    let getComputerChoice = function () {
+        const choices = ['r', 'p', 's'];
+        const randomNumber = Math.floor(Math.random() * choices.length);
+        return choices[randomNumber];
+    };
 
-   switch(userChoice + computerChoice){
-      case "rp":
-      case "pr":
-      case "sp":
-      console.log("user wins");
-      break;
-      case "rp":
-      case "ps":
-      case "sr":
-      console.log("user loses");
-      case "rr":
-      case "pp":
-      case "ss":
-      console.log("draw!");
-      break;
-}
- }
-let main = function(){
-    rock_li.addEventListener("click", function(){
-        game("r");
-    });
+    const win = function (user, computer) {
+        userScore++;
+        userScore_span.innerHTML = userScore;
+        computerScore_span.innerHTML = computerScore;
+        console.log(`Player: ${userScore}`);
+        console.log(`${user} ${computer}`)
+    };
+    const lose = function () {
+        computerScore++;
+        computerScore_span.innerHTML = computerScore;
+        computerScore_span.innerHTML = computerScore;
 
-    paper_li.addEventListener("click", function(){
-       game("p");
-    });
+        console.log(`computer: ${computerScore}`);
+    };
+    const draw = function () {
+        console.log("draw");
+    };
+    console.log(getComputerChoice());
 
-    scissors_li.addEventListener("click", function(){
-       game("s");
-    });
-};
+    let game = function (userChoice) {
+        console.log(`Your Choice was ${userChoice} `);
+        const computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        console.log(`user choice => ${userChoice}`);
+        console.log(`computer choice => ${computerChoice}`);
 
-main();
- 
+        switch (userChoice + computerChoice) {
+            case "rs":
+            case "pr":
+            case "sp":
+                win(userChoice, computerChoice);
+                console.log("user wins");
+                break;
+            case "rp":
+            case "ps":
+            case "sr":
+                lose();
+                console.log("user loses");
+            case "rr":
+            case "pp":
+            case "ss":
+                draw();
+                console.log("draw!");
+                break;
+        }
+    };
+    let main = function () {
+        rock_li.addEventListener("click", function () {
+            game("r");
+        });
 
+        paper_li.addEventListener("click", function () {
+            game("p");
+        });
+
+        scissors_li.addEventListener("click", function () {
+            game("s");
+        });
+    };
+
+    main();
 
 
 

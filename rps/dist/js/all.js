@@ -5204,9 +5204,12 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     talonUtil.setupScrollPointerBlocker();
     talonUtil.setupUserBinds();
 
+    
+
+
     //RPS Game
-    const userScore = 0;
-    const computerScore = 0;
+    let userScore = 0;
+    let computerScore = 0;
     const userScore_span = document.querySelector(".user-score");
     const computerScore_span = document.querySelector(".computer-score");
     const scoreboard_div = document.querySelector(".scoreboard");
@@ -5218,8 +5221,26 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     //functions
     let getComputerChoice = function () {
         const choices = ['r', 'p', 's'];
-        const randomNumber = Math.floor(Math.random() * 3);
+        const randomNumber = Math.floor(Math.random() * choices.length);
         return choices[randomNumber];
+    };
+
+    const win = function (user, computer) {
+        userScore++;
+        userScore_span.innerHTML = userScore;
+        computerScore_span.innerHTML = computerScore;
+        console.log(`Player: ${userScore}`);
+        console.log(`${user} ${computer}`)
+    };
+    const lose = function () {
+        computerScore++;
+        computerScore_span.innerHTML = computerScore;
+        computerScore_span.innerHTML = computerScore;
+
+        console.log(`computer: ${computerScore}`);
+    };
+    const draw = function () {
+        console.log("draw");
     };
     console.log(getComputerChoice());
 
@@ -5231,18 +5252,21 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
         console.log(`computer choice => ${computerChoice}`);
 
         switch (userChoice + computerChoice) {
-            case "rp":
+            case "rs":
             case "pr":
             case "sp":
+                win(userChoice, computerChoice);
                 console.log("user wins");
                 break;
             case "rp":
             case "ps":
             case "sr":
+                lose();
                 console.log("user loses");
             case "rr":
             case "pp":
             case "ss":
+                draw();
                 console.log("draw!");
                 break;
         }
@@ -5262,4 +5286,6 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     };
 
     main();
+
+
 })(jQuery, window.talonUtil);
