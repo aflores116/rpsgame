@@ -502,34 +502,36 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     const userScore_span = document.querySelector(".user-score");
     const computerScore_span = document.querySelector(".computer-score");
     const scoreboard_div = document.querySelector(".scoreboard");
-    const result_div = document.querySelector(".result");
+    const result_p = document.querySelector(".result > p");
     const rock_li = document.querySelector(".r");
     const paper_li = document.querySelector(".p");
     const scissors_li = document.querySelector(".s");
 
     //functions
     let getComputerChoice = function () {
-        const choices = ['r', 'p', 's'];
+        const choices = ['rock', 'paper', 'scissors'];
         const randomNumber = Math.floor(Math.random() * choices.length);
         return choices[randomNumber];
     };
 
-    const win = function (user, computer) {
+    const win = function (userChoice, computerChoice) {
         userScore++;
         userScore_span.innerHTML = userScore;
         computerScore_span.innerHTML = computerScore;
         console.log(`Player: ${userScore}`);
-        console.log(`${user} ${computer}`)
+        result_p.innerHTML = `${userChoice} beats ${computerChoice}, you win`;
     };
-    const lose = function () {
+    const lose = function (userChoice,computerChoice) {
         computerScore++;
         computerScore_span.innerHTML = computerScore;
         computerScore_span.innerHTML = computerScore;
+        result_p.innerHTML = `${computerChoice} beats ${userChoice}, you lose`;
 
         console.log(`computer: ${computerScore}`);
     };
     const draw = function () {
         console.log("draw");
+        result_p.innerHTML = `User and Computer picked the same! It's a draw!`;
     };
     console.log(getComputerChoice());
 
@@ -541,20 +543,20 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
         console.log(`computer choice => ${computerChoice}`);
 
         switch (userChoice + computerChoice) {
-            case "rs":
-            case "pr":
-            case "sp":
+            case "rockscissors":
+            case "paperrock":
+            case "scissorspaper":
                 win(userChoice, computerChoice);
                 console.log("user wins");
                 break;
-            case "rp":
-            case "ps":
-            case "sr":
+            case "rockpaper":
+            case "paperscissors":
+            case "scissorsrock":
                 lose();
                 console.log("user loses");
-            case "rr":
-            case "pp":
-            case "ss":
+            case "rockrock":
+            case "paperpaper":
+            case "scissorsscissors":
                 draw();
                 console.log("draw!");
                 break;
@@ -562,20 +564,19 @@ if (/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
     };
     let main = function () {
         rock_li.addEventListener("click", function () {
-            game("r");
+            game("rock");
         });
 
         paper_li.addEventListener("click", function () {
-            game("p");
+            game("paper");
         });
 
         scissors_li.addEventListener("click", function () {
-            game("s");
+            game("scissors");
         });
     };
 
     main();
-
 
 
 
